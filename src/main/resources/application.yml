@@ -1,0 +1,14 @@
+server:
+  port: ${SEVER_PORT:2000}
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/student_sms
+    username: student
+    password: student123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      
