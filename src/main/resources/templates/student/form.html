@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${student.id != null ? 'Edit Student' : 'New Student'}"></title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="container mt-3">
+    <h3 th:text="${student.id != null ? 'Edit Student' : 'Add Student'}"></h3>
+    <form th:action="@{/students/save}" th:object="${student}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <div class="mb-2">
+            <label>First Name</label>
+            <input type="text" th:field="*{firstName}" class="form-control" required />
+        </div>
+        <div class="mb-2">
+            <label>Last Name</label>
+            <input type="text" th:field="*{lastName}" class="form-control" required />
+        </div>
+        <div class="mb-2">
+            <label>Email</label>
+            <input type="email" th:field="*{email}" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
